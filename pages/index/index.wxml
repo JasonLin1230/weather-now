@@ -1,0 +1,28 @@
+<!--index.wxml-->
+<view class="container">
+  <view class="userlocation">
+    <button class="iconfont icon-location icon-edit locate_btn" open-type="getUserLocation" bindtap="bindLocation">{{userChoosedLocation}}</button>
+  </view>
+  <view class='update_loc'>——数据更新于{{update_loc}}——</view>
+  <view class='main_section'>
+    <view class='cond_icon'>
+       <image src="{{cond_icon}}"></image> 
+    </view>
+    <view class='cond_detail'>
+      <text class='cond_txt'>{{cond_txt}}</text>
+      <view class='tmp cond_type'>{{tmp}}
+        <text>温度</text>
+      </view>
+      <view class='hum cond_type'>{{hum}}
+        <text>湿度</text>
+      </view>
+    </view>
+  </view>
+  <view class='cond_tip'>
+    <text class='tip'>——小建议——</text>
+    <view class='tip_detail'>{{tip}}</view>
+  </view>
+  <view class="motto">
+    <text class="copy_motto">{{motto}}</text>
+  </view>
+</view>

@@ -1,0 +1,110 @@
+/* fonts */
+@font-face {font-family: "iconfont";
+  src: url('../../fonts/iconfont.eot?t=1516362375069'); /* IE9*/
+  src: url('../../fonts/iconfont.eot?t=1516362375069#iefix') format('embedded-opentype'), /* IE6-IE8 */
+  url('data:application/x-font-woff;charset=utf-8;base64,d09GRgABAAAAAAWgAAsAAAAACBgAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAABHU1VCAAABCAAAADMAAABCsP6z7U9TLzIAAAE8AAAARAAAAFZW7lCyY21hcAAAAYAAAABoAAABnNehhFFnbHlmAAAB6AAAAbkAAAHcQNIx6GhlYWQAAAOkAAAALwAAADYQLzsEaGhlYQAAA9QAAAAcAAAAJAfeA4VobXR4AAAD8AAAABAAAAAQD+kAAGxvY2EAAAQAAAAACgAAAAoBZACobWF4cAAABAwAAAAfAAAAIAETAF1uYW1lAAAELAAAAUUAAAJtPlT+fXBvc3QAAAV0AAAALAAAAD2xWVtEeJxjYGRgYOBikGPQYWB0cfMJYeBgYGGAAJAMY05meiJQDMoDyrGAaQ4gZoOIAgCKIwNPAHicY2Bk/sU4gYGVgYOpk+kMAwNDP4RmfM1gxMjBwMDEwMrMgBUEpLmmMDgwVLw7xtzwv4EhhrmBoQEozAiSAwAzVA08eJxjYGBgZWBgYAZiHSBmYWBgzGBgZACBJKAoI1icmYELLM7CYAbkcwAhE5CueKb67tj//ygsEGAEq+AAs5hAJjOyMQwYYBw4q1EBD5g0gfJA4V0BxUAnPlOFYFC4vjsGwQzMAI5/Ez94nB1PTWsTURR9573OvEmbvOm8+cpMmo9JmkykOpJxzCzEBNNslCpCoUUoggvRjbW7blxURBB14SJrFyK4c9WNUnfiyj9RNP6LTn3p5XI43HvgnEM0Qs5P2QmrEpv0yYBMyX1CoG+gLWgdUZwldANupLm+I1jciSPeaSfsJvy27njpMOv5OtdNCDRwLUqHcUJjXM9G9AZSrw4EtXBbdtck+4Dlatx4Xdyhn+A2O2vm6Epx+/LYSVu2cViWMpDyvaFrmkHpkinwzPdKWmlZLz5rZuieNC/RJspBHG49qLRq8tGbbL/e9UvA0RHsWkt8GVuhpfZF6Nky4KsVoxpWOusODv+uVO1yvfeHqKGq6zkzGMgKCVTLEfIGfAGeIFaktjgoKoDHdHcy2aUXuK9NtW9f9Xsamx0czKiY7FC6M7m1+Cb5W178RsbfDZ/PGJspj6ULj5eMKI8aaZJ1QrqRgOP50QhZr5uOgWF2FT2dg+secp9jDJ+zh2ebwnEE/WHa9tkp57+wZVmbciCL4z3Dxcc47xevBvN8PoVdt7GAp2wPd61UqWAVxz9lhHlfqb4/mQ//qSj/ARsVVO8AAAB4nGNgZGBgAOKX3tW58fw2Xxm4WRhA4Fr773YE/f8hCwOzBJDLwcAEEgUATe8LlAB4nGNgZGBgbvjfwBDDwgACQJKRARWwAABHCgJtBAAAAAPpAAAEAAAABAAAAAAAAAAAdgCoAO4AAHicY2BkYGBgYQhkYGUAASYg5gJCBob/YD4DABESAXEAeJxlj01OwzAQhV/6B6QSqqhgh+QFYgEo/RGrblhUavdddN+mTpsqiSPHrdQDcB6OwAk4AtyAO/BIJ5s2lsffvHljTwDc4Acejt8t95E9XDI7cg0XuBeuU38QbpBfhJto41W4Rf1N2MczpsJtdGF5g9e4YvaEd2EPHXwI13CNT+E69S/hBvlbuIk7/Aq30PHqwj7mXle4jUcv9sdWL5xeqeVBxaHJIpM5v4KZXu+Sha3S6pxrW8QmU4OgX0lTnWlb3VPs10PnIhVZk6oJqzpJjMqt2erQBRvn8lGvF4kehCblWGP+tsYCjnEFhSUOjDFCGGSIyujoO1Vm9K+xQ8Jee1Y9zed0WxTU/3OFAQL0z1xTurLSeTpPgT1fG1J1dCtuy56UNJFezUkSskJe1rZUQuoBNmVXjhF6XNGJPyhnSP8ACVpuyAAAAHicY2BigAAuBuyAhZGJkZmRhZGVgbGCIyc/ObEkMz+PJTUls4SBAQA7IwWn') format('woff'),
+  url('../../fonts/iconfont.ttf?t=1516362375069') format('truetype'), /* chrome, firefox, opera, Safari, Android, iOS 4.2+*/
+  url('../../fonts/iconfont.svg?t=1516362375069#iconfont') format('svg'); /* iOS 4.1- */
+}
+.iconfont {
+  font-family:"iconfont" !important;
+  font-size:16px;
+  font-style:normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+.icon-location:before { content: "\e625"; }
+.icon-edit:after { content: "\eec6";font-size: 40rpx; }
+/**index.wxss**/
+/* .userinfo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.userinfo-avatar {
+  width: 128rpx;
+  height: 128rpx;
+  margin: 20rpx;
+  border-radius: 50%;
+}
+
+.userinfo-nickname {
+  color: #aaa;
+} */
+.locate_btn{
+  border: none;
+  color: #878787;
+  cursor: pointer;
+  background: white;
+  font-size: 35rpx;
+  overflow: hidden;
+  white-space:nowrap;
+  padding: 0;
+}
+.locate_btn::after{
+  border: none;
+  position: relative;
+}
+.update_loc{
+  margin-top: 140rpx;
+  font-size: 28rpx;
+  color: #aaa;
+}
+.main_section{
+  display: flex;
+  margin-top: 30rpx;
+}
+.cond_icon{
+  width: 200rpx;
+  float: left;
+}
+.cond_icon>image{
+  width: 200rpx;
+  height: 200rpx;
+}
+.cond_detail{
+  width: 250rpx;
+  margin-left: 60rpx;
+  float: left;
+}
+.cond_txt{
+  display: block;
+  font-size: 65rpx;
+  text-align: center;
+  margin-bottom: 30rpx;
+  color: #333;
+}
+.cond_type{
+  width: 50%;
+  float: left;
+  font-size: 40rpx;
+  color: #333;
+  text-align: center;
+}
+.cond_type>text{
+  color: #aaa;
+  display: block;
+  font-size: 33rpx;
+}
+.cond_tip{
+  margin-top: 300rpx;
+}
+.cond_tip .tip{
+  display: block;
+  text-align: center;
+  font-size: 28rpx;
+  color: #aaa;
+}
+.tip_detail{
+  margin-top: 25rpx;
+  font-size: 32rpx;
+  color: #333;
+}
+.motto {
+  padding: 10rpx 0;
+  position: absolute;
+  bottom: 0;
+  color: #333;
+  font-size: 26rpx;
+}
