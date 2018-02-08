@@ -47,7 +47,7 @@
   position: relative;
 }
 .update_loc{
-  margin-top: 140rpx;
+  margin-top: 100rpx;
   font-size: 28rpx;
   color: #aaa;
 }
@@ -64,7 +64,7 @@
   height: 200rpx;
 }
 .cond_detail{
-  width: 250rpx;
+  width: 260rpx;
   margin-left: 60rpx;
   float: left;
 }
@@ -87,17 +87,39 @@
   display: block;
   font-size: 33rpx;
 }
-.cond_tip{
-  margin-top: 300rpx;
+.forecast_section{
+  margin-top: 70rpx;
 }
-.cond_tip .tip{
+.small_icon{
+  width: 90rpx;
+  height: 90rpx;
+  vertical-align: middle;
+}
+.fore text{
+  display: inline-block;
+  width: 128rpx;
+  text-align: center;
+  color: #878787;
+  font-size: 32rpx;
+  padding: 0 18rpx;
+}
+.fore .fore_day{
+  width: auto;
+  margin-right: 38rpx;
+  padding-right: 32rpx;
+  border-right: 1px solid #878787;
+}
+.cond_tip{
+  margin-top: 70rpx;
+}
+.container .tip{
   display: block;
   text-align: center;
   font-size: 28rpx;
   color: #aaa;
+  margin-bottom: 26rpx;
 }
 .tip_detail{
-  margin-top: 25rpx;
   font-size: 32rpx;
   color: #333;
 }

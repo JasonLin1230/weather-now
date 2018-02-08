@@ -6,7 +6,8 @@
   <view class='update_loc'>——数据更新于{{update_loc}}——</view>
   <view class='main_section'>
     <view class='cond_icon'>
-       <image src="{{cond_icon}}"></image> 
+       <!-- <image src="{{cond_icon}}"></image>  -->
+       <image src="../../images/100.png"></image>
     </view>
     <view class='cond_detail'>
       <text class='cond_txt'>{{cond_txt}}</text>
@@ -16,6 +17,21 @@
       <view class='hum cond_type'>{{hum}}
         <text>湿度</text>
       </view>
+    </view>
+  </view>
+  <view class='forecast_section'>
+    <text class='tip'>——明后两天预报——</text>
+    <view class='tomorrow fore'>
+      <text class='fore_day'>明天</text>
+      <image src="{{cond_icon_tomo}}" class='small_icon'></image>
+      <text>{{cond_txt_tomo}}</text>
+      <text>{{tmp_tomo}}</text>
+    </view>
+    <view class='after_tomorrow fore'>
+      <text class='fore_day'>后天</text>
+      <image src="{{cond_icon_after}}" class='small_icon'></image>
+      <text>{{cond_txt_after}}</text>
+      <text>{{tmp_after}}</text>
     </view>
   </view>
   <view class='cond_tip'>
