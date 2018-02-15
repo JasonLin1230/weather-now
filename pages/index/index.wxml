@@ -6,8 +6,7 @@
   <view class='update_loc'>——数据更新于{{update_loc}}——</view>
   <view class='main_section'>
     <view class='cond_icon'>
-       <!-- <image src="{{cond_icon}}"></image>  -->
-       <image src="../../images/100.png"></image>
+       <image src="{{cond_icon}}"></image>
     </view>
     <view class='cond_detail'>
       <text class='cond_txt'>{{cond_txt}}</text>
