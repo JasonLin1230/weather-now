@@ -11,6 +11,20 @@ Page({
     userChoosedLocation:'手动选择位置',
     hasUserLocation: false,
   },
+  onShareAppMessage: function (res) {
+    return {
+      title: '实况天气',
+      path: '/pages/index',
+      imageUrl: '../../images/icon.png',
+      success: function (res) {
+        wx.showToast({
+          title: '转发成功',
+          icon: 'success',
+          duration: 2000
+        })
+      }
+    }
+  },
   // 获取天气数据
   getWeatherData: function (that, address,latitude,longitude){
     var that=that
@@ -69,9 +83,13 @@ Page({
           var tmp_tomo = tmp_tomo_min + '~' + tmp_tomo_max + '℃'
           var tmp_after = tmp_after_min + '~' + tmp_after_max + '℃'
           // lifestyle
+          var comf = lifestyle[0].brf
           var drsg = lifestyle[1].brf
           var flu = lifestyle[2].brf
           var sport = lifestyle[3].brf
+          var trav = lifestyle[4].brf
+          var uv = lifestyle[5].brf
+          var cw = lifestyle[6].brf
           var air = lifestyle[7].brf
           that.setData({
             update_loc: last_time_loc,
@@ -95,9 +113,13 @@ Page({
             tmp_tomo: tmp_tomo,
             tmp_after: tmp_after,
 
+            comf: comf,
             drsg: drsg,
             flu: flu,
             sport: sport,
+            trav: trav,
+            uv: uv,
+            cw: cw,
             air: air
           })
           if (address===null) {
@@ -171,6 +193,11 @@ Page({
       title: '本功能将在小程序支持echarts后上线',
       icon: 'none',
       duration: 2000
+    })
+  },
+  lifestyle: function(){
+    wx.navigateTo({
+      url: '/pages/lifestyle/lifestyle'
     })
   }
 })

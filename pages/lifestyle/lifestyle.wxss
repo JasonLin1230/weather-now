@@ -1,0 +1,33 @@
+.life-container{
+  box-sizing: border-box;
+  padding: 0 20rpx;
+}
+.life-li{
+  padding: 20rpx 0;
+  display: flex;
+  border-bottom: 1px solid #eeeeee;
+}
+.item-icon{
+  width: 150rpx;
+  box-sizing: border-box;
+  text-align: center;
+  color: #777777;
+  font-size: 60rpx;
+  padding-top: 15rpx;
+}
+.item-icon text{
+  display: block;
+  font-size: 26rpx;
+}
+.item-txt{
+  flex: 1;
+  font-size: 27rpx;
+  color: #555555;
+}
+.item-txt text{
+  display: block;
+}
+.item-txt text:first-child{
+  font-size: 32rpx;
+  margin-bottom: 4rpx;
+}
