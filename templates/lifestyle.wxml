@@ -1,0 +1,8 @@
+<template name="life-li">
+  <view class='life-li'>
+        <view class='item-txt'>
+          <text>{{brf}}</text>
+          <text>{{txt}}</text>
+        </view>
+      </view>
+</template>

@@ -1,0 +1,12 @@
+<template name="item-col">
+  <view class='item-col'>
+    <view class='date'>{{date}}</view>
+        <view class='icon_d'><image src="{{'../../images/' + cond_code_d + '.png'}}"></image></view>
+        <view class='txt txt_d'>{{cond_txt_d}}</view>
+        <view class='tmp'>{{tmp_min + "~" + tmp_max + "℃"}}</view>
+        <view class='icon_n'><image src="{{'../../images/' + cond_code_n + '.png'}}"></image></view>
+        <view class='txt txt_n'>{{cond_txt_n}}</view>
+        <view class='wind_dir'>{{wind_dir}}</view>
+        <view class='wind_sc'>{{wind_sc}}</view>
+  </view>
+</template>

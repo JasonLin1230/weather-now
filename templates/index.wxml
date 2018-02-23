@@ -1,0 +1,19 @@
+<template name="hourly-item-col">
+  <view class='item-col'>
+    <view class='time'>{{time}}</view>
+    <view class='icon'><image src="{{'../../images/' + cond_code + '.png'}}"></image></view>
+    <view class='tmp'>{{tmp + "℃"}}</view>
+    <view class='wind_dir'>{{wind_dir}}</view>
+    <view class='wind_sc'>{{wind_sc}}</view>
+  </view>
+</template>
+<template name="index-forecast">
+  <view class='flex'>
+    <text class='flex-item'>{{day}}</text>
+    <view class='flex-item'>
+      <image src="{{'../../images/' + cond_code_d + '.png'}}" class='small_icon'></image>
+    </view>
+    <text class='flex-item'>{{cond_txt_d}}</text>
+    <text class='flex-item'>{{tmp_min+"~"+tmp_max+"℃"}}</text>
+  </view>
+</template>

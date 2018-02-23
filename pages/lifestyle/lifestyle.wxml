@@ -1,60 +1,20 @@
+ <import src="../../templates/lifestyle.wxml"/> 
 <view>
   <view class='life-container'>
-    <view class='life-li'>
-      <view class='item-icon iconfont icon-yifu'><text>穿衣指数</text></view>
-      <view class='item-txt'>
-        <text>较舒适</text>
-        <text>建议着薄外套、开衫牛仔衫裤等服装。年老体弱者应适当添加衣物，宜着夹克衫、薄毛衣等。</text>
-      </view>
-    </view>
-    <view class='life-li'>
-      <view class='item-icon iconfont icon-icontw'><text>感冒指数</text></view>
-      <view class='item-txt'>
-        <text>少发</text>
-        <text>各项气象条件适宜，无明显降温过程，发生感冒机率较低。</text>
-      </view>
-    </view>
-    <view class='life-li'>
-      <view class='item-icon iconfont icon-yundong'><text>运动指数</text></view>
-      <view class='item-txt'>
-        <text>适宜</text>
-        <text>天气较好，赶快投身大自然参与户外运动，尽情感受运动的快乐吧。</text>
-      </view>
-    </view>
-    <view class='life-li'>
-      <view class='item-icon iconfont icon-kongqiqingxin'><text>空气指数</text></view>
-      <view class='item-txt'>
-        <text>较差</text>
-        <text>气象条件较不利于空气污染物稀释、扩散和清除，请适当减少室外活动时间。</text>
-      </view>
-    </view>
-    <view class='life-li'>
-      <view class='item-icon iconfont icon-iconset0451'><text>紫外线指数</text></view>
-      <view class='item-txt'>
-        <text>弱</text>
-        <text>紫外线强度较弱，建议出门前涂擦SPF在12-15之间、PA+的防晒护肤品。</text>
-      </view>
-    </view>
-    <view class='life-li'>
+    <view class='life-icon'>
       <view class='item-icon iconfont icon-shushidu'><text>舒适指数</text></view>
-      <view class='item-txt'>
-        <text>舒适</text>
-        <text>今天夜间不太热也不太冷，风力不大，相信您在这样的天气条件下，应会感到比较清爽和舒适</text>
-      </view>
-    </view>
-    <view class='life-li'>
-      <view class='item-icon iconfont icon-xichekaidan'><text>洗车指数</text></view>
-      <view class='item-txt'>
-        <text>较不宜</text>
-        <text>较不宜洗车，未来一天无雨，风力较大，如果执意擦洗汽车，要做好蒙上污垢的心理准备。</text>
-      </view>
-    </view>
-    <view class='life-li'>
+      <view class='item-icon iconfont icon-yifu'><text>穿衣指数</text></view>
+      <view class='item-icon iconfont icon-icontw'><text>感冒指数</text></view>
+      <view class='item-icon iconfont icon-yundong'><text>运动指数</text></view>
       <view class='item-icon iconfont icon-lvhang'><text>旅行指数</text></view>
-      <view class='item-txt'>
-        <text>适宜</text>
-        <text>天气较好，但丝毫不会影响您出行的心情。温度适宜又有微风相伴，适宜旅游。</text>
-      </view>
+      <view class='item-icon iconfont icon-iconset0451'><text>紫外线指数</text></view>
+      <view class='item-icon iconfont icon-xichekaidan'><text>洗车指数</text></view>
+      <view class='item-icon iconfont icon-kongqiqingxin'><text>空气指数</text></view>
+    </view>
+    <view class='life-txt'>
+      <block wx:for="{{lifestyle}}" wx:key="index">
+        <template is="life-li" data="{{...item}}"/>
+      </block>
     </view>
   </view>
   <view class="motto">

@@ -43,85 +43,44 @@ Page({
           var now = res.data.HeWeather6[0].now
           var update = res.data.HeWeather6[0].update
           var lifestyle = res.data.HeWeather6[0].lifestyle
+          var hourly = res.data.HeWeather6[0].hourly
+          var forecast = res.data.HeWeather6[0].daily_forecast
           var admin_area = basic.admin_area
           var parent_city = basic.parent_city
           var city = basic.location
-          // now
-          var cond_code = now.cond_code
-          var cond_txt = now.cond_txt
-          var tmp = now.tmp + '℃'
-          var hum = now.hum + '%'
-          var wind_dir = now.wind_dir
-          var wind_sc = now.wind_sc
-          if(wind_sc.indexOf('风')===-1){
-            wind_sc = wind_sc + '级'
-          }
-          var fl = now.fl + '℃'
-          var vis = now.vis + 'km'
-          var pres = now.pres + 'mb'
-
           var last_time_loc = update.loc
-          var cond_icon = '../../images/' + cond_code + '.png'
-          var forecast = res.data.HeWeather6[0].daily_forecast
+          // now
+          var now_format=[]
+          now_format.push(now)
+          if(now_format[0].wind_sc.indexOf('风')===-1){
+            now_format[0].wind_sc = now_format[0].wind_sc + '级'
+          }
           // forecast
-          var cond_code_today = forecast[0].cond_code_d
-          var cond_code_tomo = forecast[1].cond_code_d
-          var cond_code_after = forecast[2].cond_code_d
-          var cond_txt_today = forecast[0].cond_txt_d
-          var cond_txt_tomo = forecast[1].cond_txt_d
-          var cond_txt_after = forecast[2].cond_txt_d
-          var tmp_today_max = forecast[0].tmp_max
-          var tmp_tomo_max = forecast[1].tmp_max
-          var tmp_after_max = forecast[2].tmp_max
-          var tmp_today_min = forecast[0].tmp_min
-          var tmp_tomo_min = forecast[1].tmp_min
-          var tmp_after_min = forecast[2].tmp_min
-          var cond_icon_today = '../../images/' + cond_code_today + '.png'
-          var cond_icon_tomo = '../../images/' + cond_code_tomo + '.png'
-          var cond_icon_after = '../../images/' + cond_code_after + '.png'
-          var tmp_today = tmp_today_min + '~' + tmp_today_max + '℃'
-          var tmp_tomo = tmp_tomo_min + '~' + tmp_tomo_max + '℃'
-          var tmp_after = tmp_after_min + '~' + tmp_after_max + '℃'
-          // lifestyle
-          var comf = lifestyle[0].brf
-          var drsg = lifestyle[1].brf
-          var flu = lifestyle[2].brf
-          var sport = lifestyle[3].brf
-          var trav = lifestyle[4].brf
-          var uv = lifestyle[5].brf
-          var cw = lifestyle[6].brf
-          var air = lifestyle[7].brf
+          forecast[0].day = "今天"
+          forecast[1].day = "明天"
+          forecast[2].day = "后天"
+          // hourly
+          hourly = JSON.parse(JSON.stringify(hourly))
+          var hourly_format = [];
+          hourly.forEach(function (item) {
+            hourly_format.push({
+              'time': item.time.substring(11),
+              'cond_code': item.cond_code,
+              'tmp': item.tmp,
+              'wind_dir': item.wind_dir,
+              'wind_sc': (item.wind_sc.indexOf('风') === -1 ? item.wind_sc + '级' : item.wind_sc)
+            })
+          })
           that.setData({
             update_loc: last_time_loc,
-            cond_icon: cond_icon,
-            cond_txt: cond_txt,
-            tmp: tmp,
-            hum: hum,
-            wind_dir: wind_dir,
-            wind_sc: wind_sc,
-            fl: fl,
-            vis: vis,
-            pres: pres,
-
-            cond_icon_today: cond_icon_today,
-            cond_icon_tomo: cond_icon_tomo,
-            cond_icon_after: cond_icon_after,
-            cond_txt_today: cond_txt_today,
-            cond_txt_tomo: cond_txt_tomo,
-            cond_txt_after: cond_txt_after,
-            tmp_today: tmp_today,
-            tmp_tomo: tmp_tomo,
-            tmp_after: tmp_after,
-
-            comf: comf,
-            drsg: drsg,
-            flu: flu,
-            sport: sport,
-            trav: trav,
-            uv: uv,
-            cw: cw,
-            air: air
+            now: now_format,
+            forecast: forecast,
+            hourly: hourly_format,
+            lifestyle: lifestyle
           })
+          // global
+          app.globalData.daily_forecast = forecast
+          app.globalData.lifestyle = lifestyle
           if (address===null) {
             var autoLocation=city
             if(parent_city!=city){
@@ -189,10 +148,8 @@ Page({
     })
   },
   week_forecast: function(){
-    wx.showToast({
-      title: '本功能将在小程序支持echarts后上线',
-      icon: 'none',
-      duration: 2000
+    wx.navigateTo({
+      url: '/pages/forecast/forecast'
     })
   },
   lifestyle: function(){

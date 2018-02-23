@@ -1,7 +1,8 @@
 {
   "pages":[
     "pages/index/index",
-    "pages/lifestyle/lifestyle"
+    "pages/lifestyle/lifestyle",
+    "pages/forecast/forecast"
   ],
   "window":{
     "backgroundTextStyle":"light",

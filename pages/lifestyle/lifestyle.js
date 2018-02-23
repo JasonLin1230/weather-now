@@ -1,7 +1,5 @@
 //获取应用实例
 const app = getApp()
-var latitude;
-var longitude;
 Page({
   data: {
     motto: 'Copyright © 2018. Jason Lin'
@@ -22,20 +20,13 @@ Page({
   },
   //事件处理函数
   onLoad: function () {
-    var that=this
-    // wx.showLoading({
-    //   title: 'Loading...',
-    // })
-    if (app.globalData.userChoosedLocation) {
+    if (app.globalData.lifestyle) {
       this.setData({
-        
+        lifestyle: app.globalData.lifestyle
       })
     } else {
-      wx.getLocation({
-        success: res => {
-          latitude=res.latitude
-          longitude = res.longitude;
-        }
+      wx.redirectTo({
+        url: '/pages/index/index'
       })
     }
   }

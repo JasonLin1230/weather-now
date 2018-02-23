@@ -35,6 +35,8 @@ App({
   },
   globalData: {
     userInfo: null,
-    userChoosedLoaction: ''
+    userChoosedLoaction: '',
+    daily_forecast: null,
+    lifestyle: null
   }
 })

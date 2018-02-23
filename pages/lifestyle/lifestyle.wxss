@@ -1,23 +1,34 @@
 .life-container{
   box-sizing: border-box;
   padding: 0 20rpx;
-}
-.life-li{
-  padding: 20rpx 0;
   display: flex;
-  border-bottom: 1px solid #eeeeee;
+}
+.life-icon{
+  width: 150rpx;
 }
 .item-icon{
   width: 150rpx;
+  height: 180rpx;
   box-sizing: border-box;
   text-align: center;
   color: #777777;
   font-size: 60rpx;
-  padding-top: 15rpx;
+  padding-top: 20rpx;
+  border-bottom: 1px solid #eeeeee;
 }
 .item-icon text{
   display: block;
   font-size: 26rpx;
+}
+.life-txt{
+  flex: 1;
+}
+.life-li{
+  height: 180rpx;
+  box-sizing: border-box;
+  padding-top: 20rpx;
+  display: flex;
+  border-bottom: 1px solid #eeeeee;
 }
 .item-txt{
   flex: 1;

@@ -114,6 +114,52 @@
 .week-forecast-btn:active{
   background-color: #eeeeee;
 }
+/* hourly */
+.hourly-container{
+  border-bottom: 20rpx solid #eeeeee;
+}
+.hourly-title{
+  font-size: 30rpx;
+  text-align: center;
+  padding: 40rpx 0 45rpx
+}
+.hourly-scroll-container{
+  width: 100%;
+  height: 530rpx;
+  overflow: hidden;
+  white-space: nowrap;
+}
+.item-col{
+  display: inline-block;
+  width: 150rpx;
+  height: auto;
+  padding: 0 8rpx;
+  text-align: center;
+}
+.item-col+.item-col{
+  border-left: 1px solid #eeeeee;
+}
+.item-col image{
+  width: 70rpx;
+  height: 70rpx;
+}
+.time{
+  font-size: 28rpx;
+  color: #555555;
+  margin-bottom: 50rpx;
+}
+.tmp{
+  font-size: 32rpx;
+  margin: 100rpx 0;
+}
+.wind_dir{
+  font-size: 30rpx;
+  color: #555555;
+}
+.wind_sc{
+  font-size: 28rpx;
+  color: #777777;
+}
 /* lifestyle */
 .lifestyle .flex{
   padding: 0;

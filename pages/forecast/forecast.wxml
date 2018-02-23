@@ -1,0 +1,13 @@
+<!--pages/forecast/forecast.wxml-->
+<import src="../../templates/forecast.wxml"/>
+<view class='forecast-container'>
+  <view class='title'>一周天气预报</view>
+  <scroll-view scroll-x class='scroll-container'>
+      <block wx:for="{{forecast}}" wx:key="index">
+        <template is="item-col" data="{{...item}}"/>
+      </block>
+  </scroll-view>
+  <view class="motto">
+    <text class="copy_motto">{{motto}}</text>
+  </view>
+</view>
