@@ -4,7 +4,7 @@
   <view class="userlocation">
     <button class="iconfont icon-dingwei icon-bianji locate_btn" open-type="getUserLocation" bindtap="bindLocation">{{userChoosedLocation}}</button>
   </view>
-  <view class='update_loc'>——数据更新于{{update_loc}}——</view>
+  <view class='update_loc' wx:if="{{update_loc}}">——数据更新于{{update_loc}}——</view>
   <view class='main_section' wx:for="{{now}}" wx:key="index">
     <view class='clear'style='width:520rpx;margin: 0 auto;'>
       <view class='item.cond_icon'>
@@ -39,7 +39,7 @@
       </view>
     </view>
   </view>
-  <view class='forecast_section'>
+  <view class='forecast_section' wx:if="{{forecast}}">
     <block wx:for="{{forecast}}" wx:key="index">
       <view wx:if="{{index<3}}">
         <template is="index-forecast" data="{{...item}}"/>
@@ -47,7 +47,7 @@
     </block>
     <view bindtap="week_forecast" class='week-forecast-btn'>{{}}一周天气预报</view>
   </view>
-  <view class='hourly-container'>
+  <view class='hourly-container' wx:if="{{hourly}}">
     <view class='hourly-title'>24小时天气预报</view>
     <scroll-view scroll-x class='hourly-scroll-container'>
       <block wx:for="{{hourly}}" wx:key="index">
@@ -55,7 +55,7 @@
       </block>
     </scroll-view>
   </view>
-  <view class='lifestyle'>
+  <view class='lifestyle' wx:if="{{lifestyle}}">
     <view class='flex'>
       <view class='flex-item' bindtap='lifestyle'>
         <text class='iconfont icon-yifu'></text>
@@ -93,7 +93,7 @@
       </view>
     </view>
   </view>
-  <view class="motto">
+  <view class="motto" wx:if="{{motto}}">
     <text class="copy_motto">{{motto}}</text>
   </view>
 </scroll-view>

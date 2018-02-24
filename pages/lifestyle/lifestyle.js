@@ -7,7 +7,7 @@ Page({
   onShareAppMessage: function (res) {
     return {
       title: '实况天气',
-      path: '/page/index',
+      path: '/pages/index/index',
       imageUrl: '../../images/icon.png',
       success: function (res) {
         wx.showToast({

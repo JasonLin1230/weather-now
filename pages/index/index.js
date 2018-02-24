@@ -1,20 +1,18 @@
 //获取应用实例
 const app = getApp()
 // const echarts = require("../../utils/echarts.simple.min.js");
-var latitude;
-var longitude;
+var latitude,longitude,address;
 var Url = "https://free-api.heweather.com/s6/weather"
 var Key = "c8216c197e6049f3a4ff432524b06499"
 Page({
   data: {
-    motto: 'Copyright © 2018. Jason Lin',
     userChoosedLocation:'手动选择位置',
     hasUserLocation: false,
   },
   onShareAppMessage: function (res) {
     return {
       title: '实况天气',
-      path: '/pages/index',
+      path: '/pages/index/index',
       imageUrl: '../../images/icon.png',
       success: function (res) {
         wx.showToast({
@@ -76,7 +74,8 @@ Page({
             now: now_format,
             forecast: forecast,
             hourly: hourly_format,
-            lifestyle: lifestyle
+            lifestyle: lifestyle,
+            motto: 'Copyright © 2018. Jason Lin',
           })
           // global
           app.globalData.daily_forecast = forecast
@@ -96,6 +95,8 @@ Page({
           }
         }
         wx.hideLoading()
+        wx.hideNavigationBarLoading()
+        wx.stopPullDownRefresh()
       }
     })
   },
@@ -115,7 +116,7 @@ Page({
         success: res => {
           latitude=res.latitude
           longitude = res.longitude;
-          var address=null
+          address=null
           this.getWeatherData(that,address,latitude,longitude)
         },
         fail:function(res){
@@ -128,17 +129,24 @@ Page({
       })
     }
   },
+  onPullDownRefresh: function () {
+    wx.showNavigationBarLoading()
+    this.getWeatherData(this, address, latitude, longitude)
+  },
   bindLocation: function () {
     var that = this
     wx.chooseLocation({
       success: res => {
-        var latitude = res.latitude
-        var longitude = res.longitude
-        var address = res.address
+        latitude = res.latitude
+        longitude = res.longitude
+        address = res.address
         if (address.length > 18) {
           address = address.substring(0, 18)
           address = address + "..."
         }
+        wx.showLoading({
+          title: 'Loading...',
+        })
         that.getWeatherData(that,address,latitude,longitude)
         that.setData({
           userChoosedLocation: address,

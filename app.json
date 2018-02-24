@@ -5,9 +5,10 @@
     "pages/forecast/forecast"
   ],
   "window":{
-    "backgroundTextStyle":"light",
-    "navigationBarBackgroundColor": "#18946E",
-    "navigationBarTitleText": "实况天气",
-    "navigationBarTextStyle":"white"
+      "backgroundColor": "#eeeeee",
+      "backgroundTextStyle": "light",
+      "navigationBarBackgroundColor": "#18946E",
+      "navigationBarTitleText": "实况天气",
+      "navigationBarTextStyle": "white"
   }
 }

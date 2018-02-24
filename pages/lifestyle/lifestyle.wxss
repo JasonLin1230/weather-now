@@ -13,7 +13,7 @@
   text-align: center;
   color: #777777;
   font-size: 60rpx;
-  padding-top: 20rpx;
+  padding-top: 24rpx;
   border-bottom: 1px solid #eeeeee;
 }
 .item-icon text{
