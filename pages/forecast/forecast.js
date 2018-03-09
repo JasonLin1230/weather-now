@@ -43,5 +43,10 @@ Page({
         })
       }
     }
-  }
+  },
+  temperature_line: function () {
+    wx.navigateTo({
+      url: '/pages/line/line'
+    })
+  },
 })

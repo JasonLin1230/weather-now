@@ -2,7 +2,8 @@
   "pages":[
     "pages/index/index",
     "pages/lifestyle/lifestyle",
-    "pages/forecast/forecast"
+    "pages/forecast/forecast",
+    "pages/line/line"
   ],
   "window":{
       "backgroundColor": "#eeeeee",

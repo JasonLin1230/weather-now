@@ -45,7 +45,7 @@
         <template is="index-forecast" data="{{...item}}"/>
       </view>
     </block>
-    <view bindtap="week_forecast" class='week-forecast-btn'>{{}}一周天气预报</view>
+    <view bindtap="week_forecast" class='week-forecast-btn'>一周天气预报</view>
   </view>
   <view class='hourly-container' wx:if="{{hourly}}">
     <view class='hourly-title'>24小时天气预报</view>

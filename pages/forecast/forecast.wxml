@@ -7,6 +7,7 @@
         <template is="item-col" data="{{...item}}"/>
       </block>
   </scroll-view>
+  <view bindtap="temperature_line" class='temperature-line'>查看气温趋势图</view>
   <view class="motto">
     <text class="copy_motto">{{motto}}</text>
   </view>
