@@ -131,7 +131,25 @@ Page({
   },
   onPullDownRefresh: function () {
     wx.showNavigationBarLoading()
-    this.getWeatherData(this, address, latitude, longitude)
+    if (app.globalData.userChoosedLocation && app.globalData.userChoosedLocation != '手动选择位置') {
+      this.getWeatherData(this, address, latitude, longitude)
+    } else {
+      wx.getLocation({
+        success: res => {
+          latitude = res.latitude
+          longitude = res.longitude;
+          address = null
+          this.getWeatherData(this, address, latitude, longitude)
+        },
+        fail: function (res) {
+          wx.showToast({
+            title: '请授权位置',
+            icon: 'loading',
+            duration: 2000
+          })
+        }
+      })
+    }
   },
   bindLocation: function () {
     var that = this
