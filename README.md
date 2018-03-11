@@ -4,8 +4,7 @@
 
 ## 欢迎体验
 
-* v1.0.0
+* v1.1.1
 
 ![qcode](https://github.com/JasonLin1230/weather-now/blob/master/pics/实况天气.jpg?raw=true)
 
-*预报显示方式待优化*
