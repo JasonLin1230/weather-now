@@ -1,12 +1,11 @@
 //获取应用实例
 const app = getApp()
-// const echarts = require("../../utils/echarts.simple.min.js");
-var latitude,longitude,address;
+var latitude, longitude, address;
 var Url = "https://free-api.heweather.com/s6/weather"
 var Key = "c8216c197e6049f3a4ff432524b06499"
 Page({
   data: {
-    userChoosedLocation:'手动选择位置',
+    userChoosedLocation: '手动选择位置',
     hasUserLocation: false,
   },
   onShareAppMessage: function (res) {
@@ -24,11 +23,11 @@ Page({
     }
   },
   // 获取天气数据
-  getWeatherData: function (that, address,latitude,longitude){
-    var that=that
-    var address=address
-    var latitude=latitude
-    var longitude=longitude
+  getWeatherData: function (that, address, latitude, longitude) {
+    var that = that
+    var address = address
+    var latitude = latitude
+    var longitude = longitude
     var url = Url + "?location=" + longitude + ',' + latitude + "&key=" + Key
     wx.request({
       url: url,
@@ -48,9 +47,9 @@ Page({
           var city = basic.location
           var last_time_loc = update.loc
           // now
-          var now_format=[]
+          var now_format = []
           now_format.push(now)
-          if(now_format[0].wind_sc.indexOf('风')===-1){
+          if (now_format[0].wind_sc.indexOf('风') === -1) {
             now_format[0].wind_sc = now_format[0].wind_sc + '级'
           }
           // forecast
@@ -80,13 +79,13 @@ Page({
           // global
           app.globalData.daily_forecast = forecast
           app.globalData.lifestyle = lifestyle
-          if (address===null) {
-            var autoLocation=city
-            if(parent_city!=city){
-              autoLocation=parent_city+'-'+autoLocation
+          if (address === null) {
+            var autoLocation = city
+            if (parent_city != city) {
+              autoLocation = parent_city + '-' + autoLocation
             }
-            if (admin_area != parent_city && admin_area!=city){
-              autoLocation = admin_area+'-'+autoLocation
+            if (admin_area != parent_city && admin_area != city) {
+              autoLocation = admin_area + '-' + autoLocation
             }
             that.setData({
               userChoosedLocation: autoLocation,
@@ -102,11 +101,11 @@ Page({
   },
   //事件处理函数
   onLoad: function () {
-    var that=this
+    var that = this
     wx.showLoading({
       title: 'Loading...',
     })
-    if (app.globalData.userChoosedLocation && app.globalData.userChoosedLocation!='手动选择位置') {
+    if (app.globalData.userChoosedLocation && app.globalData.userChoosedLocation != '手动选择位置') {
       this.setData({
         userChoosedLocation: app.globalData.userChoosedLocation,
         hasUserLocation: true
@@ -114,12 +113,12 @@ Page({
     } else {
       wx.getLocation({
         success: res => {
-          latitude=res.latitude
+          latitude = res.latitude
           longitude = res.longitude;
-          address=null
-          this.getWeatherData(that,address,latitude,longitude)
+          address = null
+          this.getWeatherData(that, address, latitude, longitude)
         },
-        fail:function(res){
+        fail: function (res) {
           wx.showToast({
             title: '请授权位置',
             icon: 'loading',
@@ -131,7 +130,7 @@ Page({
   },
   onPullDownRefresh: function () {
     wx.showNavigationBarLoading()
-    if (app.globalData.userChoosedLocation && app.globalData.userChoosedLocation != '手动选择位置') {
+    if (app.globalData.hasUserLocation) {
       this.getWeatherData(this, address, latitude, longitude)
     } else {
       wx.getLocation({
@@ -165,20 +164,22 @@ Page({
         wx.showLoading({
           title: 'Loading...',
         })
-        that.getWeatherData(that,address,latitude,longitude)
+        that.getWeatherData(that, address, latitude, longitude)
         that.setData({
           userChoosedLocation: address,
           hasUserLocation: true
         })
+        app.globalData.userChoosedLocation=address
+        app.globalData.hasUserLocation= true
       }
     })
   },
-  week_forecast: function(){
+  week_forecast: function () {
     wx.navigateTo({
       url: '/pages/forecast/forecast'
     })
   },
-  lifestyle: function(){
+  lifestyle: function () {
     wx.navigateTo({
       url: '/pages/lifestyle/lifestyle'
     })
