@@ -92,10 +92,29 @@ Page({
               hasUserLocation: true
             })
           }
+        }else{
+          wx.showToast({
+            title: '数据请求失败',
+            icon: 'loading',
+            duration: 2000
+          })
+          setTimeout(function () {
+            wx.hideToast()
+          }, 2000)
         }
         wx.hideLoading()
         wx.hideNavigationBarLoading()
         wx.stopPullDownRefresh()
+      },
+      fail: function(){
+        wx.showToast({
+          title: '异常，请重启',
+          icon: 'loading',
+          duration: 2000
+        })
+        setTimeout(function () {
+          wx.hideToast()
+        }, 2000)
       }
     })
   },
@@ -110,6 +129,7 @@ Page({
         userChoosedLocation: app.globalData.userChoosedLocation,
         hasUserLocation: true
       })
+      this.getWeatherData(this, address, latitude, longitude)
     } else {
       wx.getLocation({
         success: res => {
@@ -124,6 +144,9 @@ Page({
             icon: 'loading',
             duration: 2000
           })
+          setTimeout(function () {
+            wx.hideToast()
+          }, 2000)
         }
       })
     }
@@ -146,6 +169,9 @@ Page({
             icon: 'loading',
             duration: 2000
           })
+          setTimeout(function () {
+            wx.hideToast()
+          }, 2000)
         }
       })
     }

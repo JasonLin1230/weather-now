@@ -15,12 +15,14 @@ function setOption(chart) {
     color: ["#C23531", "#2F4554"],
 
     legend: {
+      top: 20,
+      selectedMode: true,
       data: ['最高气温', '最低气温']
     },
     grid: {
-      top: 80,
-      left: '4%',
-      right: '4%',
+      top: 100,
+      left: '3%',
+      right: '5%',
       containLabel: true
     },
 
