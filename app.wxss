@@ -22,7 +22,7 @@
   color: #333;
   font-size: 26rpx;
   text-align: center;
-  background-color: #eeeeee;
+  background-color: white;
 }
 /* fonts */
 @font-face {font-family: "iconfont";

@@ -74,7 +74,7 @@ Page({
             forecast: forecast,
             hourly: hourly_format,
             lifestyle: lifestyle,
-            motto: 'Copyright © 2018. Jason Lin',
+            motto: 'Copyright © 2020. Jason Lin',
           })
           // global
           app.globalData.daily_forecast = forecast

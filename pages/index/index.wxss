@@ -133,7 +133,7 @@
   display: inline-block;
   width: 150rpx;
   height: auto;
-  padding: 0 8rpx;
+  padding: 0 5rpx;
   text-align: center;
 }
 .item-col+.item-col{
@@ -181,4 +181,36 @@
   display: block;
   font-size: 28rpx;
   line-height: 60rpx;
+}
+.lifestyle-entry-btn{
+  font-size: 28rpx;
+  text-align: center;
+  /* padding: 25rpx 0; */
+  color: #444444;
+  height: 100rpx;
+  line-height: 100rpx;
+}
+.lifestyle-entry-btn:active{
+  background-color: #eeeeee;
+}
+/* contact */
+.contact{
+  height: 140rpx;
+  background-color: #eeeeee;
+}
+.contact-container{
+  width: 360rpx;
+  margin: 0 auto;
+  background-color: #eeeeee;
+}
+.contact-container .contact-btn{
+  height: 140rpx;
+  line-height: 140rpx;
+  display: inline-block;
+  font-size: 24rpx;
+  width: 180rpx;
+  background-color: #eeeeee;
+  color: #aaaaaa;
+  border: 0px;
+  border-radius: 0px;
 }

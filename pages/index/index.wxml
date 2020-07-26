@@ -92,7 +92,15 @@
         <text>{{lifestyle[4].brf}}</text>
       </view>
     </view>
+    <view class='lifestyle-entry-btn' bindtap='lifestyle'>生活指数详情</view>
   </view>
+  <view class="contact" wx:if="{{motto}}">
+    <view class="contact-container">
+      <button open-type="feedback" plain="true" class="contact-btn">意见反馈</button>
+      <button open-type="contact" plain="true" class="contact-btn">联系我们</button>
+    </view>
+  </view>
+  <ad unit-id="adunit-9db36411b49de0b0" wx:if="{{motto}}"></ad>
   <view class="motto" wx:if="{{motto}}">
     <text class="copy_motto">{{motto}}</text>
   </view>

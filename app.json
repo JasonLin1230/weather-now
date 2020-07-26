@@ -1,15 +1,21 @@
 {
-  "pages":[
+  "pages": [
     "pages/index/index",
     "pages/lifestyle/lifestyle",
     "pages/forecast/forecast",
     "pages/line/line"
   ],
-  "window":{
-      "backgroundColor": "#eeeeee",
-      "backgroundTextStyle": "light",
-      "navigationBarBackgroundColor": "#18946E",
-      "navigationBarTitleText": "实况天气",
-      "navigationBarTextStyle": "white"
-  }
+  "permission": {
+    "scope.userLocation": {
+      "desc": "您的位置信息将用于获取实时天气情况"
+    }
+  },
+  "window": {
+    "backgroundColor": "#eeeeee",
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#18946E",
+    "navigationBarTitleText": "实况天气",
+    "navigationBarTextStyle": "white"
+  },
+  "sitemapLocation": "sitemap.json"
 }

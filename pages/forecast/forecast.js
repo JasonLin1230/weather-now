@@ -2,7 +2,7 @@
 const app = getApp()
 Page({
   data: {
-    motto: 'Copyright © 2018. Jason Lin'
+    motto: 'Copyright © 2020. Jason Lin'
   },
   onLoad: function () {
     if (app.globalData.daily_forecast) {
