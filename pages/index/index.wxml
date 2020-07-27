@@ -2,7 +2,7 @@
 <import src="../../templates/index.wxml"/>
 <scroll-view scroll-y class="scroll-container" bindscroll="scroll">
   <view class="userlocation">
-    <button class="iconfont icon-dingwei icon-bianji locate_btn" open-type="getUserLocation" bindtap="bindLocation">{{userChoosedLocation}}</button>
+    <button class="iconfont icon-weizhidingwei icon-bianji locate_btn" open-type="getUserLocation" bindtap="bindLocation">{{userChoosedLocation}}</button>
   </view>
   <view class='update_loc' wx:if="{{update_loc}}">——数据更新于{{update_loc}}——</view>
   <view class='main_section' wx:for="{{now}}" wx:key="index">
@@ -62,7 +62,7 @@
         <text>{{lifestyle[1].brf}}</text>
       </view>
       <view class='flex-item' bindtap='lifestyle'>
-        <text class='iconfont icon-icontw'></text>
+        <text class='iconfont icon-tiwenjiance'></text>
         <text>{{lifestyle[2].brf}}</text>
       </view>
       <view class='flex-item' bindtap='lifestyle'>
@@ -70,21 +70,21 @@
         <text>{{lifestyle[3].brf}}</text>
       </view>
       <view class='flex-item' bindtap='lifestyle'>
-        <text class='iconfont icon-kongqiqingxin'></text>
+        <text class='iconfont icon-yezi'></text>
         <text>{{lifestyle[7].brf}}</text>
       </view>
     </view>
     <view class='flex'>
       <view class='flex-item' bindtap='lifestyle'>
-        <text class='iconfont icon-iconset0451'></text>
+        <text class='iconfont icon-taiyang'></text>
         <text>{{lifestyle[5].brf}}</text>
       </view>
       <view class='flex-item' bindtap='lifestyle'>
-        <text class='iconfont icon-shushidu'></text>
+        <text class='iconfont icon-shafa'></text>
         <text>{{lifestyle[0].brf}}</text>
       </view>
       <view class='flex-item' bindtap='lifestyle'>
-        <text class='iconfont icon-xichekaidan'></text>
+        <text class='iconfont icon-xiche'></text>
         <text>{{lifestyle[6].brf}}</text>
       </view>
       <view class='flex-item' bindtap='lifestyle'>
@@ -96,11 +96,13 @@
   </view>
   <view class="contact" wx:if="{{motto}}">
     <view class="contact-container">
-      <button open-type="feedback" plain="true" class="contact-btn">意见反馈</button>
-      <button open-type="contact" plain="true" class="contact-btn">联系我们</button>
+      <button open-type="feedback" plain="true" class="contact-btn iconfont icon-tianxie"> 意见反馈</button>
+      <button open-type="contact" plain="true" class="contact-btn iconfont icon-kefu"> 联系我们</button>
     </view>
   </view>
-  <ad unit-id="adunit-9db36411b49de0b0" wx:if="{{motto}}"></ad>
+  <view style="padding:30rpx 30rpx;background-color:#dddddd;border-radius:3rpx;" wx:if="{{motto}}">
+    <ad unit-id="adunit-9db36411b49de0b0" wx:if="{{motto}}"></ad>
+  </view>
   <view class="motto" wx:if="{{motto}}">
     <text class="copy_motto">{{motto}}</text>
   </view>

@@ -201,7 +201,6 @@
 .contact-container{
   width: 360rpx;
   margin: 0 auto;
-  background-color: #eeeeee;
 }
 .contact-container .contact-btn{
   height: 140rpx;
@@ -210,7 +209,7 @@
   font-size: 24rpx;
   width: 180rpx;
   background-color: #eeeeee;
-  color: #aaaaaa;
+  color: #888888;
   border: 0px;
   border-radius: 0px;
 }

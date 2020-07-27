@@ -2,7 +2,7 @@
 const app = getApp()
 Page({
   data: {
-    motto: 'Copyright © 2020. Jason Lin'
+    motto: 'Copyright © 2017-2020. Jason Lin'
   },
   onShareAppMessage: function (res) {
     return {
