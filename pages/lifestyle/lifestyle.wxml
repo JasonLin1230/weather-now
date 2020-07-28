@@ -2,14 +2,14 @@
 <view>
   <view class='life-container'>
     <view class='life-icon'>
-      <view class='item-icon iconfont icon-shushidu'><text>舒适指数</text></view>
+      <view class='item-icon iconfont icon-shafa'><text>舒适指数</text></view>
       <view class='item-icon iconfont icon-yifu'><text>穿衣指数</text></view>
-      <view class='item-icon iconfont icon-icontw'><text>感冒指数</text></view>
+      <view class='item-icon iconfont icon-tiwenjiance'><text>感冒指数</text></view>
       <view class='item-icon iconfont icon-yundong'><text>运动指数</text></view>
       <view class='item-icon iconfont icon-lvhang'><text>旅行指数</text></view>
-      <view class='item-icon iconfont icon-iconset0451'><text>紫外线指数</text></view>
-      <view class='item-icon iconfont icon-xichekaidan'><text>洗车指数</text></view>
-      <view class='item-icon iconfont icon-kongqiqingxin'><text>空气指数</text></view>
+      <view class='item-icon iconfont icon-taiyang'><text>紫外线指数</text></view>
+      <view class='item-icon iconfont icon-xiche'><text>洗车指数</text></view>
+      <view class='item-icon iconfont icon-yezi'><text>空气指数</text></view>
     </view>
     <view class='life-txt'>
       <block wx:for="{{lifestyle}}" wx:key="index">
