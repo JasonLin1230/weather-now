@@ -5,37 +5,37 @@
     <button class="iconfont icon-weizhidingwei icon-bianji locate_btn" open-type="getUserLocation" bindtap="bindLocation">{{userChoosedLocation}}</button>
   </view>
   <view class='update_loc' wx:if="{{update_loc}}">——数据更新于{{update_loc}}——</view>
-  <view class='main_section' wx:for="{{now}}" wx:key="index">
+  <view class='main_section' wx:if="{{now}}" wx:key="index">
     <view class='clear'style='width:520rpx;margin: 0 auto;'>
       <view class='item.cond_icon'>
-        <image src="{{'../../images/' + item.cond_code + '.png'}}"></image>
+        <image src="{{'../../images/' + now.icon + '.png'}}"></image>
       </view>
       <view class='cond_detail'>
-        <text class='cond_txt'>{{item.cond_txt}}</text>
-        <view class='cond_type'>{{item.tmp + "℃"}}
+        <text class='cond_txt'>{{now.text}}</text>
+        <view class='cond_type'>{{now.temp + "℃"}}
           <text>温度</text>
         </view>
-        <view class='cond_type'>{{item.hum + "%"}}
+        <view class='cond_type'>{{now.humidity + "%"}}
           <text>湿度</text>
         </view>
       </view>
     </view>
     <view class='detail_info'>
       <view>
-        <text>{{item.wind_dir}}</text>
-        <text>{{item.wind_sc}}</text>
+        <text>{{now.windDir}}</text>
+        <text>{{now.windScale}}</text>
       </view>
       <view>
         <text>体感温度</text>
-        <text>{{item.fl + "℃"}}</text>
+        <text>{{now.feelsLike + "℃"}}</text>
       </view>
       <view>
         <text>能见度</text>
-        <text>{{item.vis + "km"}}</text>
+        <text>{{now.vis + "km"}}</text>
       </view>
       <view>
         <text>气压</text>
-        <text>{{item.pres + "mb"}}</text>
+        <text>{{now.pressure + "mb"}}</text>
       </view>
     </view>
   </view>
@@ -59,37 +59,37 @@
     <view class='flex'>
       <view class='flex-item' bindtap='lifestyle'>
         <text class='iconfont icon-yifu'></text>
-        <text>{{lifestyle[1].brf}}</text>
+        <text>{{lifestyle[5].category}}</text>
       </view>
       <view class='flex-item' bindtap='lifestyle'>
         <text class='iconfont icon-tiwenjiance'></text>
-        <text>{{lifestyle[2].brf}}</text>
+        <text>{{lifestyle[13].category}}</text>
       </view>
       <view class='flex-item' bindtap='lifestyle'>
         <text class='iconfont icon-yundong'></text>
-        <text>{{lifestyle[3].brf}}</text>
+        <text>{{lifestyle[15].category}}</text>
       </view>
       <view class='flex-item' bindtap='lifestyle'>
         <text class='iconfont icon-yezi'></text>
-        <text>{{lifestyle[7].brf}}</text>
+        <text>{{lifestyle[4].category}}</text>
       </view>
     </view>
     <view class='flex'>
       <view class='flex-item' bindtap='lifestyle'>
         <text class='iconfont icon-taiyang'></text>
-        <text>{{lifestyle[5].brf}}</text>
+        <text>{{lifestyle[8].category}}</text>
       </view>
       <view class='flex-item' bindtap='lifestyle'>
         <text class='iconfont icon-shafa'></text>
-        <text>{{lifestyle[0].brf}}</text>
+        <text>{{lifestyle[12].category}}</text>
       </view>
       <view class='flex-item' bindtap='lifestyle'>
         <text class='iconfont icon-xiche'></text>
-        <text>{{lifestyle[6].brf}}</text>
+        <text>{{lifestyle[14].category}}</text>
       </view>
       <view class='flex-item' bindtap='lifestyle'>
         <text class='iconfont icon-lvhang'></text>
-        <text>{{lifestyle[4].brf}}</text>
+        <text>{{lifestyle[1].category}}</text>
       </view>
     </view>
     <view class='lifestyle-entry-btn' bindtap='lifestyle'>生活指数详情</view>

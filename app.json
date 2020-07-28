@@ -13,7 +13,7 @@
   "window": {
     "backgroundColor": "#eeeeee",
     "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#18946E",
+    "navigationBarBackgroundColor": "#47ADF5",
     "navigationBarTitleText": "实况天气",
     "navigationBarTextStyle": "white"
   },
