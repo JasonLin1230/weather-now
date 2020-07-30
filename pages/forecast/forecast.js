@@ -6,23 +6,28 @@ Page({
   },
   onLoad: function () {
     if (app.globalData.daily_forecast) {
-      var forecast = JSON.parse(JSON.stringify(app.globalData.daily_forecast))
-      var forecast_format = [];
-      forecast.forEach(function (item) {
-        forecast_format.push({
-          'date': item.date.substring(5),
-          'cond_code_d': item.cond_code_d,
-          'cond_code_n': item.cond_code_n,
-          'cond_txt_d': item.cond_txt_d,
-          'cond_txt_n': item.cond_txt_n,
-          'tmp_max': item.tmp_max,
-          'tmp_min': item.tmp_min,
-          'wind_dir': item.wind_dir,
-          'wind_sc': (item.wind_sc.indexOf('风') === -1 ? item.wind_sc + '级' : item.wind_sc)
-        })
+      // var forecast = JSON.parse(JSON.stringify(app.globalData.daily_forecast))
+      // var forecast_format = [];
+      let forecast = app.globalData.daily_forecast
+      forecast.forEach(item => {
+        item.fxDate = item.fxDate.slice(5)
+        item.windScaleDay = (item.windScaleDay.indexOf('风') === -1 ? item.windScaleDay + '级' : item.windScaleDay)
       })
+      // forecast.forEach(function (item) {
+      //   forecast_format.push({
+      //     'date': item.date.substring(5),
+      //     'cond_code_d': item.cond_code_d,
+      //     'cond_code_n': item.cond_code_n,
+      //     'cond_txt_d': item.cond_txt_d,
+      //     'cond_txt_n': item.cond_txt_n,
+      //     'tmp_max': item.tmp_max,
+      //     'tmp_min': item.tmp_min,
+      //     'wind_dir': item.wind_dir,
+      //     'wind_sc': (item.wind_sc.indexOf('风') === -1 ? item.wind_sc + '级' : item.wind_sc)
+      //   })
+      // })
       this.setData({
-        forecast: forecast_format
+        forecast: forecast
       })
     }else{
       wx.redirectTo({

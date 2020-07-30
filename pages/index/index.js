@@ -90,6 +90,7 @@ Page({
           that.setData({
             forecast: forecast
           })
+          app.globalData.daily_forecast = forecast
         }else{
           wx.showToast({
             title: '数据请求失败',
@@ -161,6 +162,9 @@ Page({
         console.log(res.data)
         if(res.data.code == '200'){
           let lifestyle = res.data.daily
+          lifestyle = lifestyle.sort((a,b) => {
+            return a.type-b.type
+          })
           that.setData({
             lifestyle: lifestyle
           })

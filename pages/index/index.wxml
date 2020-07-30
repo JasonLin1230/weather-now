@@ -59,37 +59,37 @@
     <view class='flex'>
       <view class='flex-item' bindtap='lifestyle'>
         <text class='iconfont icon-yifu'></text>
-        <text>{{lifestyle[5].category}}</text>
+        <text>{{lifestyle[2].category}}</text>
       </view>
       <view class='flex-item' bindtap='lifestyle'>
         <text class='iconfont icon-tiwenjiance'></text>
-        <text>{{lifestyle[13].category}}</text>
+        <text>{{lifestyle[8].category}}</text>
       </view>
       <view class='flex-item' bindtap='lifestyle'>
         <text class='iconfont icon-yundong'></text>
-        <text>{{lifestyle[15].category}}</text>
+        <text>{{lifestyle[0].category}}</text>
       </view>
       <view class='flex-item' bindtap='lifestyle'>
         <text class='iconfont icon-yezi'></text>
-        <text>{{lifestyle[4].category}}</text>
+        <text>{{lifestyle[9].category}}</text>
       </view>
     </view>
     <view class='flex'>
       <view class='flex-item' bindtap='lifestyle'>
         <text class='iconfont icon-taiyang'></text>
-        <text>{{lifestyle[8].category}}</text>
+        <text>{{lifestyle[4].category}}</text>
       </view>
       <view class='flex-item' bindtap='lifestyle'>
         <text class='iconfont icon-shafa'></text>
-        <text>{{lifestyle[12].category}}</text>
+        <text>{{lifestyle[7].category}}</text>
       </view>
       <view class='flex-item' bindtap='lifestyle'>
         <text class='iconfont icon-xiche'></text>
-        <text>{{lifestyle[14].category}}</text>
+        <text>{{lifestyle[1].category}}</text>
       </view>
       <view class='flex-item' bindtap='lifestyle'>
         <text class='iconfont icon-lvhang'></text>
-        <text>{{lifestyle[1].category}}</text>
+        <text>{{lifestyle[5].category}}</text>
       </view>
     </view>
     <view class='lifestyle-entry-btn' bindtap='lifestyle'>生活指数详情</view>
