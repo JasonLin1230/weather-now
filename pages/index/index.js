@@ -9,7 +9,7 @@ var mapKey = "LPWBZ-XS7KX-54D4X-T5ZQW-CQDST-OBFTU";
 Page({
   data: {
     userChoosedLocation: '手动选择位置',
-    hasUserLocation: false,
+    hasUserLocation: false
   },
   onShareAppMessage: function (res) {
     return {
@@ -25,6 +25,30 @@ Page({
       }
     }
   },
+  dataIsNotOK: function (){
+    // 数据异常
+    wx.showToast({
+      title: '天气数据异常',
+      icon: 'loading',
+      duration: 2000
+    })
+    setTimeout(function () {
+      wx.hideToast()
+    }, 2000)
+  },
+  networkNotOk: function(){
+    // 请求失败
+    if(isAllSuccess != 0){
+      wx.showToast({
+        title: '网络出问题了',
+        icon: 'loading',
+        duration: 2000
+      })
+      setTimeout(function () {
+        wx.hideToast()
+      }, 2000)
+    }
+  },
   // 获取天气数据
   getWeatherData: function (that, address, latitude, longitude) {
     var that = that
@@ -38,7 +62,7 @@ Page({
         'content-type': 'application/json'
       },
       success: function (res) {
-        // console.log(res.data);
+        console.log(res.data)
         if (res.data.code == '200') {
           var data = res.data
           var now = data.now
@@ -55,25 +79,11 @@ Page({
             motto: 'Copyright © 2017-2020. Jason Lin'
           })
         }else{
-          wx.showToast({
-            title: '数据请求失败',
-            icon: 'loading',
-            duration: 2000
-          })
-          setTimeout(function () {
-            wx.hideToast()
-          }, 2000)
+          that.dataIsNotOK()
         }
       },
       fail: function(){
-        wx.showToast({
-          title: '异常，请重启',
-          icon: 'loading',
-          duration: 2000
-        })
-        setTimeout(function () {
-          wx.hideToast()
-        }, 2000)
+        that.networkNotOk()
       }
     }),
     // 获取七天预报
@@ -83,7 +93,7 @@ Page({
         'content-type': 'application/json'
       },
       success: function (res) {
-        // console.log(res.data)
+        console.log(res.data)
         if(res.data.code == '200'){
           let forecast = res.data.daily
           forecast[0].day = "今天"
@@ -94,25 +104,11 @@ Page({
           })
           app.globalData.daily_forecast = forecast
         }else{
-          wx.showToast({
-            title: '数据请求失败',
-            icon: 'loading',
-            duration: 2000
-          })
-          setTimeout(function () {
-            wx.hideToast()
-          }, 2000)
+          that.dataIsNotOK()
         }
       },
       fail: function(){
-        wx.showToast({
-          title: '异常，请重启',
-          icon: 'loading',
-          duration: 2000
-        })
-        setTimeout(function () {
-          wx.hideToast()
-        }, 2000)
+        that.networkNotOk()
       }
     }),
     // 获取24小时预报
@@ -122,7 +118,7 @@ Page({
         'content-type': 'application/json'
       },
       success: function (res) {
-        // console.log(res.data)
+        console.log(res.data)
         if(res.data.code == '200'){
           let hourly = res.data.hourly
           hourly.forEach(item => {
@@ -133,25 +129,11 @@ Page({
             hourly: hourly
           })
         }else{
-          wx.showToast({
-            title: '数据请求失败',
-            icon: 'loading',
-            duration: 2000
-          })
-          setTimeout(function () {
-            wx.hideToast()
-          }, 2000)
+          that.dataIsNotOK()
         }
       },
       fail: function(){
-        wx.showToast({
-          title: '异常，请重启',
-          icon: 'loading',
-          duration: 2000
-        })
-        setTimeout(function () {
-          wx.hideToast()
-        }, 2000)
+        that.networkNotOk()
       }
     }),
     // 获取当天生活指数
@@ -161,7 +143,7 @@ Page({
         'content-type': 'application/json'
       },
       success: function (res) {
-        // console.log(res.data)
+        console.log(res.data)
         if(res.data.code == '200'){
           let lifestyle = res.data.daily
           lifestyle = lifestyle.sort((a,b) => {
@@ -172,65 +154,40 @@ Page({
           })
           app.globalData.lifestyle = lifestyle
         }else{
-          wx.showToast({
-            title: '数据请求失败',
-            icon: 'loading',
-            duration: 2000
-          })
-          setTimeout(function () {
-            wx.hideToast()
-          }, 2000)
+          that.dataIsNotOK()
         }
       },
       fail: function(){
-        wx.showToast({
-          title: '异常，请重启',
-          icon: 'loading',
-          duration: 2000
-        })
-        setTimeout(function () {
-          wx.hideToast()
-        }, 2000)
-      }
-    }),
-    // 地址逆解析
-    wx.request({
-      url: mapUrl+"?location=" + latitude + ',' + longitude + "&key=" + mapKey,
-      header: {
-        'content-type': 'application/json'
-      },
-      success: function (res) {
-        console.log(res.data)
-        if(res.data.status == '0'){
-          if (address === null) {
-            let rtn = res.data.result
-            that.setData({
-              userChoosedLocation: rtn.address,
-              hasUserLocation: true
-            })
-          }
-        }else{
-          wx.showToast({
-            title: '数据请求失败',
-            icon: 'loading',
-            duration: 2000
-          })
-          setTimeout(function () {
-            wx.hideToast()
-          }, 2000)
-        }
-      },
-      fail: function(){
-        wx.showToast({
-          title: '异常，请重启',
-          icon: 'loading',
-          duration: 2000
-        })
-        setTimeout(function () {
-          wx.hideToast()
-        }, 2000)
+        that.networkNotOk()
       }
     })
+    // 地址逆解析
+    if(address == null){
+      // console.log("地址逆解析...")
+      wx.request({
+        url: mapUrl+"?location=" + latitude + ',' + longitude + "&key=" + mapKey,
+        header: {
+          'content-type': 'application/json'
+        },
+        success: function (res) {
+          console.log(res.data)
+          if(res.data.status == '0'){
+            if (address === null) {
+              let rtn = res.data.result
+              that.setData({
+                userChoosedLocation: rtn.address.substring(0, 18),
+                hasUserLocation: true
+              })
+            }
+          }else{
+            that.dataIsNotOK()
+          }
+        },
+        fail: function(){
+          that.networkNotOk()
+        }
+      })
+    }
   },
   //事件处理函数
   onLoad: function () {
@@ -244,6 +201,7 @@ Page({
         hasUserLocation: true
       })
       this.getWeatherData(this, address, latitude, longitude)
+      wx.hideLoading()
     } else {
       wx.getLocation({
         success: res => {
@@ -251,6 +209,7 @@ Page({
           longitude = res.longitude;
           address = null
           this.getWeatherData(that, address, latitude, longitude)
+          wx.hideLoading()
         },
         fail: function (res) {
           wx.showToast({
@@ -264,7 +223,6 @@ Page({
         }
       })
     }
-    wx.hideLoading()
   },
   onPullDownRefresh: function () {
     wx.showNavigationBarLoading()
