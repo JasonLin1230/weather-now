@@ -3,7 +3,9 @@ const app = getApp()
 var latitude, longitude, address;
 var baseUrl = "https://devapi.heweather.net/v7/weather/"
 var lifeUrl = "https://devapi.heweather.net/v7/indices/"
+var mapUrl = "https://apis.map.qq.com/ws/geocoder/v1/"
 var Key = "c8216c197e6049f3a4ff432524b06499"
+var mapKey = "LPWBZ-XS7KX-54D4X-T5ZQW-CQDST-OBFTU";
 Page({
   data: {
     userChoosedLocation: '手动选择位置',
@@ -36,7 +38,7 @@ Page({
         'content-type': 'application/json'
       },
       success: function (res) {
-        console.log(res.data);
+        // console.log(res.data);
         if (res.data.code == '200') {
           var data = res.data
           var now = data.now
@@ -81,7 +83,7 @@ Page({
         'content-type': 'application/json'
       },
       success: function (res) {
-        console.log(res.data)
+        // console.log(res.data)
         if(res.data.code == '200'){
           let forecast = res.data.daily
           forecast[0].day = "今天"
@@ -120,7 +122,7 @@ Page({
         'content-type': 'application/json'
       },
       success: function (res) {
-        console.log(res.data)
+        // console.log(res.data)
         if(res.data.code == '200'){
           let hourly = res.data.hourly
           hourly.forEach(item => {
@@ -159,7 +161,7 @@ Page({
         'content-type': 'application/json'
       },
       success: function (res) {
-        console.log(res.data)
+        // console.log(res.data)
         if(res.data.code == '200'){
           let lifestyle = res.data.daily
           lifestyle = lifestyle.sort((a,b) => {
@@ -190,10 +192,45 @@ Page({
           wx.hideToast()
         }, 2000)
       }
+    }),
+    // 地址逆解析
+    wx.request({
+      url: mapUrl+"?location=" + latitude + ',' + longitude + "&key=" + mapKey,
+      header: {
+        'content-type': 'application/json'
+      },
+      success: function (res) {
+        console.log(res.data)
+        if(res.data.status == '0'){
+          if (address === null) {
+            let rtn = res.data.result
+            that.setData({
+              userChoosedLocation: rtn.address,
+              hasUserLocation: true
+            })
+          }
+        }else{
+          wx.showToast({
+            title: '数据请求失败',
+            icon: 'loading',
+            duration: 2000
+          })
+          setTimeout(function () {
+            wx.hideToast()
+          }, 2000)
+        }
+      },
+      fail: function(){
+        wx.showToast({
+          title: '异常，请重启',
+          icon: 'loading',
+          duration: 2000
+        })
+        setTimeout(function () {
+          wx.hideToast()
+        }, 2000)
+      }
     })
-    wx.hideLoading()
-    wx.hideNavigationBarLoading()
-    wx.stopPullDownRefresh()
   },
   //事件处理函数
   onLoad: function () {
@@ -227,6 +264,7 @@ Page({
         }
       })
     }
+    wx.hideLoading()
   },
   onPullDownRefresh: function () {
     wx.showNavigationBarLoading()
@@ -252,6 +290,8 @@ Page({
         }
       })
     }
+    wx.hideNavigationBarLoading()
+    wx.stopPullDownRefresh()
   },
   bindLocation: function () {
     var that = this
@@ -274,6 +314,7 @@ Page({
         })
         app.globalData.userChoosedLocation=address
         app.globalData.hasUserLocation= true
+        wx.hideLoading()
       }
     })
   },
