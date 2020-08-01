@@ -5,8 +5,8 @@ let chart = null;
 const app = getApp();
 
 let dates = [];
-let tmp_min = [];
-let tmp_max = [];
+let tempMin = [];
+let tempMax = [];
 
 function setOption(chart) {
 
@@ -14,48 +14,44 @@ function setOption(chart) {
     backgroundColor: "#fff",
     color: ["#C23531", "#2F4554"],
 
-    legend: {
-      top: 20,
-      selectedMode: true,
-      data: ['最高气温', '最低气温']
-    },
     grid: {
-      top: 100,
-      left: '3%',
-      right: '5%',
-      containLabel: true
+      top: 40,
+      left: '1%',
+      right: '2%',
+      bottom: 40
     },
 
     xAxis: {
       type: 'category',
-      boundaryGap: false,
+      show: false,
       data: dates
     },
     yAxis: {
+      show:false,
       type: 'value',
-      axisLabel: {
-        formatter: '{value} °C'
-      }
+      min: 'dataMin'
     },
     series: [
       {
-        name: '最高气温',
         type: 'line',
-        data: tmp_max,
-        markPoint: {
-          data: [
-            { type: 'max', name: '最大值' }
-          ]
+        data: tempMax,
+        label: {
+          normal: {
+            show: true,
+            position: 'top',
+            formatter: "{c} °C"
+          }
         }
       },
       {
-        name: '最低气温',
         type: 'line',
-        data: tmp_min,
-        markPoint: {
-          data: [
-            { type: 'min', name: '最小值' }
-          ]
+        data: tempMin,
+        label: {
+          normal: {
+              show: true,
+              position: 'bottom',
+              formatter: "{c} °C"
+            }
         }
       }
     ]
@@ -66,12 +62,12 @@ function setOption(chart) {
 Page({
   onLoad: function (){
     if (app.globalData.daily_forecast) {
-      var forecast = JSON.parse(JSON.stringify(app.globalData.daily_forecast))
-      if(dates == ''){
+      let forecast = app.globalData.daily_forecast
+      if(dates.length == 0){
         forecast.forEach(function (item) {
-          dates.push(item.date.substring(5))
-          tmp_max.push(item.tmp_max)
-          tmp_min.push(item.tmp_min)
+          dates.push(item.fxDate.slice(5))
+          tempMax.push(item.tempMax)
+          tempMin.push(item.tempMin)
         })
       }
     } else {
