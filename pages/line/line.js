@@ -69,15 +69,16 @@ Page({
   onLoad: function (){
     if (app.globalData.daily_forecast) {
       let forecast = app.globalData.daily_forecast
-      if(dates.length == 0){
-        forecast.forEach(function (item) {
-          item.date = item.fxDate.slice(5)
-          item.windScaleDay = (item.windScaleDay.indexOf('风') === -1 ? item.windScaleDay + '级' : item.windScaleDay)
-          dates.push(item.fxDate)
-          tempMax.push(item.tempMax)
-          tempMin.push(item.tempMin)
-        })
-      }
+      dates = [];
+      tempMin = [];
+      tempMax = [];
+      forecast.forEach(function (item) {
+        item.date = item.fxDate.slice(5)
+        item.windScale = (item.windScaleDay.indexOf('风') === -1 ? item.windScaleDay + '级' : item.windScaleDay)
+        dates.push(item.fxDate)
+        tempMax.push(item.tempMax)
+        tempMin.push(item.tempMin)
+      })
       this.setData({
         forecast: forecast
       })

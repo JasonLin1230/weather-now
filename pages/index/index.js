@@ -262,9 +262,6 @@ Page({
           address = address.substring(0, 18)
           address = address + "..."
         }
-        wx.showLoading({
-          title: 'Loading...',
-        })
         that.getWeatherData(that, address, latitude, longitude)
         that.setData({
           userChoosedLocation: address,
@@ -272,7 +269,6 @@ Page({
         })
         app.globalData.userChoosedLocation=address
         app.globalData.hasUserLocation= true
-        wx.hideLoading()
       }
     })
   },

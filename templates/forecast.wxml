@@ -10,6 +10,6 @@
     <view class='icon_n'><image src="{{'../../images/' + iconNight + '.png'}}"></image></view>
     <view class='txt txt_n'>{{textNight}}</view>
     <view class='wind_dir'>{{windDirDay}}</view>
-    <view class='wind_sc'>{{windScaleDay}}</view>
+    <view class='wind_sc'>{{windScale}}</view>
   </view>
 </template>
