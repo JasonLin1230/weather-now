@@ -1,4 +1,23 @@
+<import src="../../templates/forecast.wxml"/>
 <view class="container">
-  <!-- <canvas type="2d" id="mychart-dom-line"  canvas-id="mychart-line" ec="{{ec}}"></canvas> -->
+  <view class='title'>一周天气预报</view>
+  <view class='list-container'>
+    <template is="item-col-up" data="{{...item}}" wx:for="{{forecast}}" wx:key="index"/>
+  </view>
   <ec-canvas id="mychart-dom-line" canvas-id="mychart-line" ec="{{ec}}"></ec-canvas>
+  <view class='list-container' style="margin-bottom:50px;">
+    <template is="item-col-bottom" data="{{...item}}" wx:for="{{forecast}}" wx:key="index"/>
+  </view>
+  <view class="contact" wx:if="{{motto}}">
+    <view class="contact-container">
+      <button open-type="feedback" plain="true" class="contact-btn iconfont icon-tianxie"> 意见反馈</button>
+      <button open-type="contact" plain="true" class="contact-btn iconfont icon-kefu"> 联系我们</button>
+    </view>
+  </view>
+  <view class="ad-container" wx:if="{{motto}}">
+    <ad unit-id="adunit-5c3cfe7576f3106a"></ad>
+  </view>
+  <view class="motto" wx:if="{{motto}}">
+    <text class="copy_motto">{{motto}}</text>
+  </view>
 </view>

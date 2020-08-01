@@ -1,12 +1,23 @@
 <!--pages/forecast/forecast.wxml-->
 <import src="../../templates/forecast.wxml"/>
-<view class='forecast-container'>
+<view class='container'>
   <view class='title'>一周天气预报</view>
-  <scroll-view scroll-x class='scroll-container'>
-      <block wx:for="{{forecast}}" wx:key="index">
-        <template is="item-col" data="{{...item}}"/>
-      </block>
-  </scroll-view>
+  <!-- <scroll-view scroll-x class='scroll-container'> -->
+  <view class='list-container'>
+    <!-- <block wx:for="{{forecast}}" wx:key="index"> -->
+      <template is="item-col-up" data="{{...item}}" wx:for="{{forecast}}" wx:key="index"/>
+    <!-- </block> -->
+  </view>
+  <ec-canvas id="mychart-dom-line" canvas-id="mychart-line" ec="{{ec}}"></ec-canvas>
+  <view class='list-container'>
+    <!-- <block wx:for="{{forecast}}" wx:key="index"> -->
+      <template is="item-col-bottom" data="{{...item}}"  wx:for="{{forecast}}" wx:key="index"/>
+    <!-- </block> -->
+  </view>
+      <!-- <block wx:for="{{forecast}}" wx:key="index">
+        <template is="item-col-bottom" data="{{...item}}"/>
+      </block> -->
+  <!-- </scroll-view> -->
   <view bindtap="temperature_line" class='temperature-line'>查看气温趋势图</view>
   <view class="motto">
     <text class="copy_motto">{{motto}}</text>

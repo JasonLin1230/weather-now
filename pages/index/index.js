@@ -279,7 +279,7 @@ Page({
   },
   week_forecast: function () {
     wx.navigateTo({
-      url: '/pages/forecast/forecast'
+      url: '/pages/line/line'
     })
   },
   lifestyle: function () {

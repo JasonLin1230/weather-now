@@ -14,17 +14,16 @@ function initChart(canvas,width,height,dpr) {
   });
   canvas.setChart(chart);
 
-  const option = {
+  const option = { 
+    animation: false,
     backgroundColor: "#fff",
-    color: ["#C23531", "#2F4554"],
-
+    color: ["#FF6325", "#3880FE"],
     grid: {
-      top: 40,
+      top: 45,
       left: '1%',
-      right: '2%',
-      bottom: 40
+      right: '1%',
+      bottom: 45
     },
-
     xAxis: {
       type: 'category',
       show: false,
@@ -38,6 +37,7 @@ function initChart(canvas,width,height,dpr) {
     series: [
       {
         type: 'line',
+        smooth: true,
         data: tempMax,
         label: {
           normal: {
@@ -49,6 +49,7 @@ function initChart(canvas,width,height,dpr) {
       },
       {
         type: 'line',
+        smooth: true,
         data: tempMin,
         label: {
           normal: {
@@ -70,11 +71,16 @@ Page({
       let forecast = app.globalData.daily_forecast
       if(dates.length == 0){
         forecast.forEach(function (item) {
-          dates.push(item.fxDate.slice(5))
+          item.date = item.fxDate.slice(5)
+          item.windScaleDay = (item.windScaleDay.indexOf('风') === -1 ? item.windScaleDay + '级' : item.windScaleDay)
+          dates.push(item.fxDate)
           tempMax.push(item.tempMax)
           tempMin.push(item.tempMin)
         })
       }
+      this.setData({
+        forecast: forecast
+      })
     } else {
       wx.redirectTo({
         url: '/pages/index/index'
@@ -96,42 +102,11 @@ Page({
     }
   },
   onReady: function () {
-    // 获取组件
-    // this.ecComponent = this.selectComponent('#mychart-dom-line');
-    // this.ecComponent.init((canvas, width, height) => {
-    //   // 获取组件的 canvas、width、height 后的回调函数
-    //   // 在这里初始化图表
-    //   const chart = echarts.init(canvas, null, {
-    //     width: width,
-    //     height: height
-    //   });
-    //   setOption(chart);
-
-    //   // 将图表实例绑定到 this 上，可以在其他成员函数（如 dispose）中访问
-    //   this.chart = chart;
-
-    //   this.setData({
-    //     isLoaded: true,
-    //     isDisposed: false
-    //   });
-    // });
   },
-
   data: {
     ec: {
       onInit: initChart,
     },
-    // isLoaded: false,
-    // isDisposed: false
-  },
-
-  // dispose: function () {
-  //   if (this.chart) {
-  //     this.chart.dispose();
-  //   }
-
-  //   this.setData({
-  //     isDisposed: true
-  //   });
-  // }
+    motto: 'Copyright © 2017-2020. Jason Lin'
+  }
 });

@@ -1,4 +1,51 @@
 ec-canvas {
   width: 100%;
-  height: 180px;
+  height: 200px;
+}
+.title{
+  font-size: 35rpx;
+  text-align: center;
+  padding: 20rpx 0 40rpx;
+}
+.list-container{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+.item-col{
+  display: inline-block;
+  width: 14%;
+  height: auto;
+  box-sizing: border-box;
+  padding: 0 8rpx;
+  text-align: center;
+}
+.item-col image{
+  width: 60rpx;
+  height: 60rpx;
+}
+.date{
+  font-size: 26rpx;
+  color: #555555;
+  margin-bottom: 40rpx;
+}
+.txt{
+  font-size: 28rpx;
+}
+.txt_n{
+  margin-bottom: 40rpx;
+}
+.wind_dir{
+  font-size: 27rpx;
+  color: #555555;
+}
+.wind_sc{
+  font-size: 26rpx;
+  color: #777777;
+}
+.ad-container{
+  width:100%;
+  box-sizing: border-box;
+  padding:30rpx 30rpx;
+  background-color:#dddddd;
 }

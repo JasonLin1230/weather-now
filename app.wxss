@@ -24,6 +24,27 @@
   text-align: center;
   background-color: white;
 }
+/* contact */
+.contact{
+  width: 100%;
+  height: 140rpx;
+  background-color: #eeeeee;
+}
+.contact-container{
+  width: 360rpx;
+  margin: 0 auto;
+}
+.contact-container .contact-btn{
+  height: 140rpx;
+  line-height: 140rpx;
+  display: inline-block;
+  font-size: 24rpx;
+  width: 180rpx;
+  background-color: #eeeeee;
+  color: #888888;
+  border: 0px;
+  border-radius: 0px;
+}
 /* fonts */
 @font-face {font-family: "iconfont";
   src: url('iconfont.eot?t=1595947940704'); /* IE9 */

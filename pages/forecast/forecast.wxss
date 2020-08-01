@@ -2,39 +2,48 @@
 .forecast-container{
   width: 100%;
   height: 100%;
+  min-height: 500px;
+  /* box-sizing: border-box;
+  padding: 0 1%; */
 }
 .title{
-  font-size: 40rpx;
+  font-size: 35rpx;
   text-align: center;
   padding: 20rpx 0 40rpx;
 }
-.scroll-container{
+/* .scroll-container{
   width: 100%;
   height: 390px;
   overflow: hidden;
   white-space: nowrap;
+} */
+.list-container{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
 }
 .item-col{
   display: inline-block;
-  width: 150rpx;
+  width: 14%;
   height: auto;
+  box-sizing: border-box;
   padding: 0 8rpx;
   text-align: center;
 }
-.item-col+.item-col{
-  border-left: 1px solid #eeeeee;
-}
+/* .item-col+.item-col{ */
+  /* border-left: 1px solid #eeeeee; */
+/* } */
 .item-col image{
-  width: 70rpx;
-  height: 70rpx;
+  width: 60rpx;
+  height: 60rpx;
 }
 .date{
-  font-size: 28rpx;
+  font-size: 26rpx;
   color: #555555;
   margin-bottom: 50rpx;
 }
 .txt{
-  font-size: 30rpx;
+  font-size: 27rpx;
 }
 .txt_n{
   margin-bottom: 50rpx;
@@ -44,21 +53,32 @@
   margin: 120rpx 0;
 }
 .wind_dir{
-  font-size: 30rpx;
+  font-size: 27rpx;
   color: #555555;
 }
 .wind_sc{
-  font-size: 28rpx;
+  font-size: 26rpx;
   color: #777777;
 }
-.temperature-line{
+/* .temperature-line{
+  margin-top: 35%;
   text-align:center;
   font-size:30rpx;
   color:#333;
   height:100rpx;
   line-height:100rpx;
-}
+} */
 .motto{
   position: absolute;
   bottom: 0;
+}
+
+.canvas-container{
+  width: 100%;
+  height: 100%;
+  min-height: 200px;
+}
+ec-canvas {
+  width: 100%;
+  height: 180px;
 }
