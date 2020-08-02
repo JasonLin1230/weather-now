@@ -1,9 +1,23 @@
 {
   "pages": [
     "pages/index/index",
-    "pages/lifestyle/lifestyle",
-    "pages/line/line"
+    "pages/lifestyle/lifestyle"
   ],
+  "subpackages": [
+    {
+      "root": "package-line",
+      "name": "package-line",
+      "pages": [
+        "pages/line/line"
+      ]
+    }
+  ],
+  "preloadRule": {
+    "pages/index/index": {
+      "network": "all",
+      "packages": ["package-line"]
+    }
+  },
   "permission": {
     "scope.userLocation": {
       "desc": "您的位置信息将用于获取实时天气情况"

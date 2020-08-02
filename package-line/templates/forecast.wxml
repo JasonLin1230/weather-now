@@ -1,13 +1,13 @@
 <template name="item-col-up">
   <view class='item-col'>
     <view class='date'>{{date}}</view>
-    <view class='icon_d'><image src="{{'../../images/' + iconDay + '.png'}}"></image></view>
+    <view class='icon_d'><image src="{{'../../../images/' + iconDay + '.png'}}"></image></view>
     <view class='txt txt_d'>{{textDay}}</view>
   </view>
 </template>
 <template name="item-col-bottom">
   <view class='item-col'>
-    <view class='icon_n'><image src="{{'../../images/' + iconNight + '.png'}}"></image></view>
+    <view class='icon_n'><image src="{{'../../../images/' + iconNight + '.png'}}"></image></view>
     <view class='txt txt_n'>{{textNight}}</view>
     <view class='wind_dir'>{{windDirDay}}</view>
     <view class='wind_sc'>{{windScale}}</view>

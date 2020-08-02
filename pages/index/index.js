@@ -274,7 +274,7 @@ Page({
   },
   week_forecast: function () {
     wx.navigateTo({
-      url: '/pages/line/line'
+      url: '/package-line/pages/line/line'
     })
   },
   lifestyle: function () {
