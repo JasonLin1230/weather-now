@@ -38,16 +38,14 @@ Page({
   },
   networkNotOk: function(){
     // 请求失败
-    if(isAllSuccess != 0){
-      wx.showToast({
-        title: '网络出问题了',
-        icon: 'loading',
-        duration: 2000
-      })
-      setTimeout(function () {
-        wx.hideToast()
-      }, 2000)
-    }
+    wx.showToast({
+      title: '网络出问题了',
+      icon: 'loading',
+      duration: 2000
+    })
+    setTimeout(function () {
+      wx.hideToast()
+    }, 2000)
   },
   // 获取天气数据
   getWeatherData: function (that, address, latitude, longitude) {

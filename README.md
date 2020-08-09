@@ -6,7 +6,7 @@
 * [ECharts微信小程序版](https://github.com/ecomfe/echarts-for-weixin)
 
 ### QuickView
-![QuickView](pics/QuickView.gif)
+![QuickView](pics/QuickView-v2.0.0.gif)
 
 ### QRCode
-![QRCode](pics/weather-now.jpg)
+![QRCode](pics/weather-now-v2.0.0.jpg)
